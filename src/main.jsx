@@ -9,6 +9,7 @@ import Login from "./Pages/Authentication/Login.jsx";
 import Register from "./Pages/Authentication/Register.jsx";
 import Instructors from "./Pages/Instructors/Instructors.jsx";
 import Classes from "./Pages/Classes/Classes.jsx";
+import AuthProvider from "./Provider/AuthProvider";
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<AuthProvider>
+			<div className="max-w-6xl mx-auto">
+				<RouterProvider router={router} />
+			</div>
+		</AuthProvider>
 	</React.StrictMode>
 );

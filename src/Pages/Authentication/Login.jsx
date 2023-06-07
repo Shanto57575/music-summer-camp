@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import login from "../../assets/register.png";
 import { useForm } from "react-hook-form";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
 	const {
@@ -13,13 +15,16 @@ const Login = () => {
 		console.log(data);
 	};
 
+	const handleGoogle = () => {};
+	const handleGithub = () => {};
+
 	return (
 		<div className="hero h-full bg-base-200 text-white">
 			<div className="hero-content">
 				<div className="text-center">
-					<img src={login} className="animate-pulse hidden lg:block" />
+					<img src={login} className="hidden lg:block" />
 				</div>
-				<div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-white">
+				<div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-white">
 					<form onSubmit={handleSubmit(onSubmit)} className="card-body">
 						<h1 className="text-xl font-serif font-bold text-center">
 							Login Here
@@ -55,6 +60,31 @@ const Login = () => {
 									Password is required
 								</span>
 							)}
+						</div>
+						<div className="form-control">
+							<label className="label">
+								<span className="label-text">Or</span>
+							</label>
+							<div className="flex gap-4 w-full">
+								<div
+									onClick={handleGoogle}
+									className="text-center w-1/2 text-3xl bg-black border p-2 rounded-lg flex items-center gap-2"
+								>
+									<FcGoogle />
+									<span className="text-sm font-semibold">
+										Sign In with Google
+									</span>
+								</div>
+								<div
+									onClick={handleGithub}
+									className="text-center w-1/2 text-3xl bg-black border p-2 rounded-lg flex items-center gap-2"
+								>
+									<FaGithub />
+									<span className="text-sm font-semibold">
+										Sign In with Github
+									</span>
+								</div>
+							</div>
 						</div>
 						<div className="form-control mt-6">
 							<input type="submit" className="btn" value="Sign In" />

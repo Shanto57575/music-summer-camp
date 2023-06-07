@@ -11,6 +11,7 @@ const Register = () => {
 	const onSubmit = (data) => {
 		console.log(data);
 	};
+
 	return (
 		<div className="h-full bg-base-200 text-white">
 			<div className="lg:flex w-full">
