@@ -10,6 +10,8 @@ import Register from "./Pages/Authentication/Register.jsx";
 import Instructors from "./Pages/Instructors/Instructors.jsx";
 import Classes from "./Pages/Classes/Classes.jsx";
 import AuthProvider from "./Provider/AuthProvider";
+import Dashboard from "./Pages/Main/Home/Dashboard/Dashboard";
+import PrivateRoute from "./Pages/Route/PrivateRoute";
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
 				element: <Classes></Classes>,
 			},
 			{
+				path: "/dashboard",
+				element: (
+					<PrivateRoute>
+						<Dashboard></Dashboard>
+					</PrivateRoute>
+				),
+			},
+			{
 				path: "/login",
 				element: <Login></Login>,
 			},
@@ -42,7 +52,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<AuthProvider>
-			<div className="max-w-6xl mx-auto">
+			<div className="">
 				<RouterProvider router={router} />
 			</div>
 		</AuthProvider>

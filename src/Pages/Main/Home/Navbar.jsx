@@ -1,8 +1,26 @@
 import { Link } from "react-router-dom";
 import musicLogo from "../../../assets/music.png";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import { FaUserAlt } from "react-icons/fa";
+import { Toaster, toast } from "react-hot-toast";
+
 const Navbar = () => {
+	const { user, LogOut } = useContext(AuthContext);
+
+	const handleLogout = () => {
+		LogOut()
+			.then(() => {
+				toast.success("Signed Out Successfully!");
+			})
+			.catch(() => {
+				toast.error("Try Again!!!");
+			});
+	};
+
+	console.log(user);
 	const navItem = (
-		<div className="text-lg lg:flex font-bold ">
+		<div className="text-lg lg:flex font-bold">
 			<li>
 				<Link to="/">Home</Link>
 			</li>
@@ -13,15 +31,23 @@ const Navbar = () => {
 				<Link to="/classes">Classes</Link>
 			</li>
 			<li>
-				<Link to="/login">Login</Link>
+				<Link to="/dashboard">Dashboard</Link>
 			</li>
-			<li>
-				<Link to="/register">SignUp</Link>
-			</li>
+
+			{user ? (
+				<li onClick={handleLogout}>
+					<Link>SignOut</Link>
+					<Toaster position="top-center" reverseOrder={true} />
+				</li>
+			) : (
+				<li>
+					<Link to="/register">SignUp</Link>
+				</li>
+			)}
 		</div>
 	);
 	return (
-		<div className="navbar">
+		<div className="navbar sticky top-0 z-50 h-20 bg-white shadow-xl">
 			<div className="navbar-start">
 				<div className="dropdown">
 					<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -55,8 +81,22 @@ const Navbar = () => {
 			<div className="navbar-center hidden lg:flex">
 				<ul className="menu menu-horizontal px-1">{navItem}</ul>
 			</div>
-			<div className="navbar-end">
-				<a className="btn">Button</a>
+			<div className="navbar-end mr-7">
+				{user ? (
+					<p>
+						<img
+							className="w-10 rounded-full ring ring-slate-700 ring-offset-base-100 ring-offset-2"
+							src={user.photoURL}
+							title={user.displayName}
+							alt=""
+						/>
+					</p>
+				) : (
+					<p className="text-lg font-bold flex items-center gap-2">
+						<Link to="/login">Sign In</Link>
+						<FaUserAlt className="" />
+					</p>
+				)}
 			</div>
 		</div>
 	);

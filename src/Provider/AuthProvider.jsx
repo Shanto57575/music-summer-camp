@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 import {
 	GithubAuthProvider,
@@ -7,11 +8,12 @@ import {
 	onAuthStateChanged,
 	signInWithEmailAndPassword,
 	signInWithPopup,
+	signOut,
 	updateProfile,
 } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
 
-const AuthContext = createContext(null);
+export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const gitHubProvider = new GithubAuthProvider();
@@ -47,6 +49,11 @@ const AuthProvider = ({ children }) => {
 		});
 	};
 
+	const LogOut = () => {
+		setLoading(true);
+		return signOut(auth);
+	};
+
 	useEffect(() => {
 		const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
 			setUser(currentUser);
@@ -65,6 +72,7 @@ const AuthProvider = ({ children }) => {
 		googleSignIn,
 		githubSignIn,
 		updateUserProfile,
+		LogOut,
 	};
 
 	return (
