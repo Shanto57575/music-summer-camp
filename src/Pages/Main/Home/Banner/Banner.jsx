@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 
 import "./Banner.css";
 
-// import required modules
 import { Pagination } from "swiper";
 
 const Banner = () => {
