@@ -12,6 +12,7 @@ import Classes from "./Pages/Classes/Classes.jsx";
 import AuthProvider from "./Provider/AuthProvider";
 import Dashboard from "./Pages/Main/Home/Dashboard/Dashboard";
 import PrivateRoute from "./Pages/Route/PrivateRoute";
+import Error from "./Error";
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
 				element: <Register></Register>,
 			},
 		],
+	},
+	{
+		path: "*",
+		element: <Error></Error>,
 	},
 ]);
 

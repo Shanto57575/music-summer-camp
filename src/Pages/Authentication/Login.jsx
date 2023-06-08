@@ -2,12 +2,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/register.png";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
-import { useContext } from "react";
+import { FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
+import { useContext, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+	const [showPassword, setShowPassword] = useState(true);
+
 	const {
 		register,
 		formState: { errors },
@@ -162,10 +164,20 @@ const Login = () => {
 							</label>
 							<input
 								{...register("password", { required: true })}
-								type="password"
+								type={showPassword ? "text" : "password"}
 								placeholder="password"
 								className="input input-bordered"
 							/>
+							<button
+								onClick={() => setShowPassword(!showPassword)}
+								className="relative"
+							>
+								{showPassword ? (
+									<FaEye className="absolute -top-8 right-6" />
+								) : (
+									<FaEyeSlash className="absolute -top-8 right-6" />
+								)}
+							</button>
 							{errors.password && (
 								<span className="text-red-600 mt-3 font-bold">
 									Password is required

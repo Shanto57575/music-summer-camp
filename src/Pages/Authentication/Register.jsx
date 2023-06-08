@@ -1,18 +1,28 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
 import signUp from "../../assets/login.png";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
+	const [showPassword, setShowPassword] = useState(true);
+	const [showConfirm, setShowConfirm] = useState(true);
+	const { createUser, updateUserProfile } = useContext(AuthContext);
+
 	const {
 		register,
+		watch,
 		formState: { errors },
 		handleSubmit,
 	} = useForm();
 
-	const { createUser, updateUserProfile } = useContext(AuthContext);
+	const password = watch("password");
+	const confirmPassword = watch("confirm");
+	const passwordRegex =
+		/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{6,}$/;
 
 	const onSubmit = (data) => {
 		console.log(data);
@@ -106,14 +116,38 @@ const Register = () => {
 									<span className="label-text text-white">Password</span>
 								</label>
 								<input
-									{...register("password", { required: true })}
-									type="password"
+									{...register("password", {
+										required: "Password is required",
+										minLength: 6,
+										maxLength: 20,
+										pattern: {
+											value: passwordRegex,
+											message:
+												"Password must be 6 char long, must have one capital letter and one special character",
+										},
+									})}
+									type={showPassword ? "text" : "password"}
 									placeholder="password"
 									className="input input-bordered"
 								/>
+								<button
+									onClick={() => setShowPassword(!showPassword)}
+									className="relative"
+								>
+									{showPassword ? (
+										<FaEye className="absolute -top-8 right-6" />
+									) : (
+										<FaEyeSlash className="absolute -top-8 right-6" />
+									)}
+								</button>
+								{/* {errors.password && (
+									<span className="text-red-600 mt-3 font-bold">
+										
+									</span>
+								)} */}
 								{errors.password && (
 									<span className="text-red-600 mt-3 font-bold">
-										Password is required
+										{errors.password.message}
 									</span>
 								)}
 							</div>
@@ -125,13 +159,28 @@ const Register = () => {
 								</label>
 								<input
 									{...register("confirm", { required: true })}
-									type="password"
+									type={showConfirm ? "text" : "password"}
 									placeholder="Confirm password"
 									className="input input-bordered"
 								/>
+								<button
+									onClick={() => setShowConfirm(!showConfirm)}
+									className="relative"
+								>
+									{showConfirm ? (
+										<FaEye className="absolute -top-8 right-6" />
+									) : (
+										<FaEyeSlash className="absolute -top-8 right-6" />
+									)}
+								</button>
 								{errors.confirm && (
 									<span className="text-red-600 mt-3 font-bold">
 										Password confirmation is required
+									</span>
+								)}
+								{password !== confirmPassword && (
+									<span className="text-red-600 mt-3 font-bold">
+										Password doesn't match
 									</span>
 								)}
 							</div>
