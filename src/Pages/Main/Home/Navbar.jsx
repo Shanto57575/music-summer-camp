@@ -71,7 +71,7 @@ const Navbar = () => {
 		</div>
 	);
 	return (
-		<div className="navbar sticky top-0 z-50 h-20 bg-white shadow-xl">
+		<div className="navbar sticky z-50 h-16 shadow-xl p-12">
 			<div className="navbar-start">
 				<div className="dropdown">
 					<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -99,7 +99,7 @@ const Navbar = () => {
 				</div>
 				<div className="flex gap-2 items-center">
 					<img className="w-20" src={musicLogo} alt="" />
-					<h1 className="font-bold text-2xl">MelodicMuse</h1>
+					<h1 className="font-bold text-2xl hidden md:block">MelodicMuse</h1>
 				</div>
 			</div>
 			<div className="navbar-center hidden lg:flex">
