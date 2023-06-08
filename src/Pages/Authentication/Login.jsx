@@ -191,7 +191,7 @@ const Login = () => {
 							<div className="flex gap-4 w-full">
 								<div
 									onClick={handleGoogle}
-									className="text-center cursor-pointer w-1/2 text-3xl bg-gray-600 hover:bg-gray-800 border p-2 rounded-lg flex items-center gap-2"
+									className="text-center cursor-pointer w-1/2 text-3xl bg-gray-600 hover:bg-black border p-2 rounded-lg flex items-center gap-2"
 								>
 									<FcGoogle />
 									<span className="text-sm font-semibold text-white">
@@ -201,7 +201,7 @@ const Login = () => {
 								</div>
 								<div
 									onClick={handleGithub}
-									className="text-center cursor-pointer w-1/2 text-3xl bg-gray-600 hover:bg-gray-800 border p-2 rounded-lg flex items-center gap-2"
+									className="text-center cursor-pointer w-1/2 text-3xl bg-gray-600 hover:bg-black border p-2 rounded-lg flex items-center gap-2"
 								>
 									<FaGithub />
 									<span className="text-sm font-semibold text-white">

@@ -1,12 +1,30 @@
 import { Link } from "react-router-dom";
 import musicLogo from "../../../assets/music.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import { FaUserAlt } from "react-icons/fa";
+import { FaMoon, FaSun, FaUserAlt } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
+import { useEffect } from "react";
 
 const Navbar = () => {
 	const { user, LogOut } = useContext(AuthContext);
+	const [theme, setTheme] = useState(
+		localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+	);
+
+	const handleToggle = (e) => {
+		if (e.target.checked) {
+			setTheme("luxury");
+		} else {
+			setTheme("light");
+		}
+	};
+
+	useEffect(() => {
+		localStorage.setItem("theme", theme);
+		const localTheme = localStorage.getItem("theme");
+		document.querySelector("html").setAttribute("data-theme", localTheme);
+	}, [theme]);
 
 	const handleLogout = () => {
 		LogOut()
@@ -32,8 +50,14 @@ const Navbar = () => {
 			</li>
 			<li>
 				<Link to="/dashboard">Dashboard</Link>
+			</li>{" "}
+			<li>
+				<label className="swap swap-rotate">
+					<input type="checkbox" onChange={handleToggle} />
+					<FaSun className="swap-on fill-current w-10 h-6"></FaSun>
+					<FaMoon className="swap-off fill-current w-10 h-6" />
+				</label>
 			</li>
-
 			{user ? (
 				<li onClick={handleLogout}>
 					<Link>SignOut</Link>
