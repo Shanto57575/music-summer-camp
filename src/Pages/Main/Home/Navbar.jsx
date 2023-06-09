@@ -36,7 +36,7 @@ const Navbar = () => {
 			});
 	};
 
-	console.log(user);
+	// console.log(user);
 	const navItem = (
 		<div className="text-lg lg:flex font-bold">
 			<li>
