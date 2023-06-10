@@ -1,9 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Instructors = () => {
 	const [instructors, setInstructors] = useState([]);
+	const { loading } = useContext(AuthContext);
 	console.log(instructors);
 	useEffect(() => {
 		fetch("http://localhost:5000/instructor")
@@ -11,15 +13,26 @@ const Instructors = () => {
 			.then((data) => setInstructors(data));
 	}, []);
 
+	if (loading) {
+		return (
+			<div className="text-center my-4">
+				<span className="loading loading-bars loading-xs"></span>
+				<span className="loading loading-bars loading-sm"></span>
+				<span className="loading loading-bars loading-md"></span>
+				<span className="loading loading-bars loading-lg"></span>
+			</div>
+		);
+	}
+
 	return (
 		<>
 			<h1 className="mt-16 mb-12 text-center text-3xl font-bold">
 				Unleash your musical potential <br /> with our,,, <br /> Musical Maestro
 			</h1>
-			<div className="grid grid-cols-1 lg:grid-cols-4 gap-5 w-full mx-auto lg:mx-5">
+			<div className="grid grid-cols-1 lg:grid-cols-4 lg:gap-5 w-full mx-auto mb-5">
 				{instructors.map((instructor) => (
 					<div key={instructor._id}>
-						<div className="card w-96 lg:w-80 glass mx-auto">
+						<div className="card w-full lg:w-80 glass my-4 lg:my-0 mx-auto shadow-2xl">
 							<figure>
 								<img
 									className="h-60 w-full"
@@ -30,7 +43,7 @@ const Instructors = () => {
 							<div className="card-body font-serif font-bold">
 								<h2 className="card-title">{instructor.name}</h2>
 								<p>Contact Me : {instructor.email}</p>
-								<p>{instructor.musicClasses} teacher</p>
+								<p>{instructor.musicClasses} Maestro</p>
 								<p>Total ClassesTaken : {instructor.classesTaken}</p>
 								<div className="card-actions justify-end">
 									<Link to="">

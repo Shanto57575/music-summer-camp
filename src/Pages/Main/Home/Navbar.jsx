@@ -3,8 +3,8 @@ import musicLogo from "../../../assets/music.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaMoon, FaSun, FaUserAlt } from "react-icons/fa";
-import { Toaster, toast } from "react-hot-toast";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
 	const { user, LogOut } = useContext(AuthContext);
@@ -14,7 +14,7 @@ const Navbar = () => {
 
 	const handleToggle = (e) => {
 		if (e.target.checked) {
-			setTheme("luxury");
+			setTheme("night");
 		} else {
 			setTheme("light");
 		}
@@ -29,10 +29,20 @@ const Navbar = () => {
 	const handleLogout = () => {
 		LogOut()
 			.then(() => {
-				toast.success("Signed Out Successfully!");
+				Swal.fire({
+					position: "center",
+					icon: "success",
+					title: "Logged Out successfully!",
+					showConfirmButton: false,
+					timer: 1500,
+				});
 			})
 			.catch(() => {
-				toast.error("Try Again!!!");
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Something went wrong!",
+				});
 			});
 	};
 
@@ -61,7 +71,6 @@ const Navbar = () => {
 			{user ? (
 				<li onClick={handleLogout}>
 					<Link>SignOut</Link>
-					<Toaster position="top-center" reverseOrder={true} />
 				</li>
 			) : (
 				<li>
@@ -110,8 +119,8 @@ const Navbar = () => {
 					<p>
 						<img
 							className="w-10 rounded-full ring ring-slate-700 ring-offset-base-100 ring-offset-2"
-							src={user.photoURL}
-							title={user.displayName}
+							src={user?.photoURL}
+							title={user?.displayName}
 							alt=""
 						/>
 					</p>

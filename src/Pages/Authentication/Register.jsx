@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Register = () => {
 	const [showPassword, setShowPassword] = useState(true);
@@ -31,30 +32,13 @@ const Register = () => {
 				console.log(result.user);
 				updateUserProfile(data.name, data.photURL)
 					.then(() => {
-						toast.custom((t) => (
-							<div
-								className={`${
-									t.visible ? "animate-enter" : "animate-leave"
-								} max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-							>
-								<div className="flex-1 w-0 p-4">
-									<div className="flex items-start">
-										<div className="flex-shrink-0 pt-0.5">
-											<img
-												className="h-10 w-10 rounded-full"
-												src={result?.user?.photoURL}
-												alt=""
-											/>
-										</div>
-										<div className="ml-3 flex-1">
-											<p className="text-sm  font-serif font-bold  text-green-600">
-												<span>Account created successfully!</span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						));
+						Swal.fire({
+							position: "center",
+							icon: "success",
+							title: "Account created successfully!",
+							showConfirmButton: false,
+							timer: 1500,
+						});
 					})
 					.catch((error) => {
 						toast.error(error.message);
@@ -121,7 +105,7 @@ const Register = () => {
 										minLength: 6,
 										maxLength: 20,
 										pattern: {
-											value: passwordRegex,
+											value: passwordRegex.toString(),
 											message:
 												"Password must be 6 char long, must have one capital letter and one special character",
 										},
@@ -140,11 +124,6 @@ const Register = () => {
 										<FaEyeSlash className="absolute -top-8 right-6" />
 									)}
 								</button>
-								{/* {errors.password && (
-									<span className="text-red-600 mt-3 font-bold">
-										
-									</span>
-								)} */}
 								{errors.password && (
 									<span className="text-red-600 mt-3 font-bold">
 										{errors.password.message}

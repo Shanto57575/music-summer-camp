@@ -6,6 +6,7 @@ import { FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
 	const [showPassword, setShowPassword] = useState(true);
@@ -16,7 +17,8 @@ const Login = () => {
 		handleSubmit,
 	} = useForm();
 
-	const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+	const { signIn, googleSignIn, githubSignIn, updateUserProfile } =
+		useContext(AuthContext);
 
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -27,33 +29,33 @@ const Login = () => {
 		console.log(data);
 		signIn(data.email, data.password)
 			.then((result) => {
+				updateUserProfile(data.name, data.photURL)
+					.then(() => {
+						Swal.fire({
+							position: "center",
+							icon: "success",
+							title: "Logged In successfully!",
+							showConfirmButton: false,
+							timer: 1500,
+						});
+					})
+					.catch(() => {
+						Swal.fire({
+							icon: "error",
+							title: "Oops...",
+							text: "Something went wrong!",
+						});
+					});
 				navigate(from, { replace: true });
+
 				console.log(result.user);
-				toast.custom((t) => (
-					<div
-						className={`${
-							t.visible ? "animate-enter" : "animate-leave"
-						} max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-					>
-						<div className="flex-1 w-0 p-4">
-							<div className="flex items-start">
-								<div className="flex-shrink-0 pt-0.5">
-									<img
-										className="h-10 w-10 rounded-full"
-										src={result?.user?.photoURL}
-										alt=""
-									/>
-								</div>
-								<div className="ml-3 flex-1">
-									<p className="text-sm  font-serif font-bold  text-green-600">
-										{result?.user?.displayName}{" "}
-										<span> Logged in successfully!</span>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				));
+				Swal.fire({
+					position: "top-center",
+					icon: "success",
+					title: "Logged In successfully!",
+					showConfirmButton: false,
+					timer: 1500,
+				});
 			})
 			.catch((error) => {
 				toast.error(error.message);
@@ -64,73 +66,63 @@ const Login = () => {
 		googleSignIn()
 			.then((result) => {
 				navigate(from, { replace: true });
-				console.log(result.user);
-				toast.custom((t) => (
-					<div
-						className={`${
-							t.visible ? "animate-enter" : "animate-leave"
-						} max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-					>
-						<div className="flex-1 w-0 p-4">
-							<div className="flex items-center">
-								<div className="flex-shrink-0 pt-0.5">
-									<img
-										className="h-10 w-10 rounded-full"
-										src={result?.user?.photoURL}
-										alt=""
-									/>
-								</div>
-								<div className="ml-3">
-									<p className="text-sm font-serif font-bold  text-green-600 ">
-										{result?.user?.displayName}{" "}
-										<span> Logged in successfully!</span>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				));
+				console
+					.log(result.user)
+					.then(() => {
+						Swal.fire({
+							position: "center",
+							icon: "success",
+							title: "Logged In successfully!",
+							showConfirmButton: false,
+							timer: 1500,
+						});
+					})
+					.catch(() => {
+						Swal.fire({
+							icon: "error",
+							title: "Oops...",
+							text: "Something went wrong!",
+						});
+					});
 			})
 			.catch((error) => {
 				toast.error(error.message);
 			});
 	};
+
 	const handleGithub = () => {
 		githubSignIn()
 			.then((result) => {
 				navigate(from, { replace: true });
-				console.log(result.user);
+				console
+					.log(result.user)
 
-				toast.custom((t) => (
-					<div
-						className={`${
-							t.visible ? "animate-enter" : "animate-leave"
-						} max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-					>
-						<div className="flex-1 w-0 p-4">
-							<div className="flex items-start">
-								<div className="flex-shrink-0 pt-0.5">
-									<img
-										className="h-10 w-10 rounded-full"
-										src={result?.user?.photoURL}
-										alt=""
-									/>
-								</div>
-								<div className="ml-3 flex-1">
-									<p className="text-sm font-serif font-bold  text-green-600 ">
-										{result?.user?.displayName}{" "}
-										<span> Logged in successfully!</span>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				));
+					.then(() => {
+						Swal.fire({
+							position: "center",
+							icon: "success",
+							title: "Logged In successfully!",
+							showConfirmButton: false,
+							timer: 1500,
+						});
+					})
+					.catch(() => {
+						Swal.fire({
+							icon: "error",
+							title: "Oops...",
+							text: "Something went wrong!",
+						});
+					});
 			})
-			.catch((error) => {
-				toast.error(error.message);
+			.catch(() => {
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Something went wrong!",
+				});
 			});
 	};
+
 	return (
 		<div className="hero h-full bg-gray-400 my-10">
 			<div className="hero-content">
