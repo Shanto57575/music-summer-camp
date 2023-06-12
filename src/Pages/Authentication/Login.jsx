@@ -17,8 +17,7 @@ const Login = () => {
 		handleSubmit,
 	} = useForm();
 
-	const { signIn, googleSignIn, githubSignIn, updateUserProfile } =
-		useContext(AuthContext);
+	const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -27,25 +26,9 @@ const Login = () => {
 
 	const onSubmit = (data) => {
 		console.log(data);
+		console.log(data.name, data.photoURL);
 		signIn(data.email, data.password)
 			.then((result) => {
-				updateUserProfile(data.name, data.photURL)
-					.then(() => {
-						Swal.fire({
-							position: "center",
-							icon: "success",
-							title: "Logged In successfully!",
-							showConfirmButton: false,
-							timer: 1500,
-						});
-					})
-					.catch(() => {
-						Swal.fire({
-							icon: "error",
-							title: "Oops...",
-							text: "Something went wrong!",
-						});
-					});
 				navigate(from, { replace: true });
 
 				console.log(result.user);

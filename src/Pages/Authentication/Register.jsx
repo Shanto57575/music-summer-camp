@@ -6,12 +6,11 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import Swal from "sweetalert2";
 
 const Register = () => {
 	const [showPassword, setShowPassword] = useState(true);
 	const [showConfirm, setShowConfirm] = useState(true);
-	const { createUser, updateUserProfile } = useContext(AuthContext);
+	const { createUser } = useContext(AuthContext);
 
 	const {
 		register,
@@ -30,19 +29,6 @@ const Register = () => {
 		createUser(data.email, data.password)
 			.then((result) => {
 				console.log(result.user);
-				updateUserProfile(data.name, data.photURL)
-					.then(() => {
-						Swal.fire({
-							position: "center",
-							icon: "success",
-							title: "Account created successfully!",
-							showConfirmButton: false,
-							timer: 1500,
-						});
-					})
-					.catch((error) => {
-						toast.error(error.message);
-					});
 			})
 			.catch((error) => {
 				toast.error(error.message);
@@ -154,7 +140,7 @@ const Register = () => {
 								</button>
 								{errors.confirm && (
 									<span className="text-red-600 mt-3 font-bold">
-										Password confirmation is required
+										Password confir mation is required
 									</span>
 								)}
 								{password !== confirmPassword && (

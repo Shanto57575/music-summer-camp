@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import musicLogo from "../../../assets/music.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import { FaMoon, FaSun, FaUserAlt } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
 
@@ -59,8 +59,8 @@ const Navbar = () => {
 				<Link to="/classes">Classes</Link>
 			</li>
 			<li>
-				<Link to="/dashboard">Dashboard</Link>
-			</li>{" "}
+				<Link to="/music">Dashboard</Link>
+			</li>
 			<li>
 				<label className="swap swap-rotate">
 					<input type="checkbox" onChange={handleToggle} />
@@ -119,15 +119,14 @@ const Navbar = () => {
 					<p>
 						<img
 							className="w-10 rounded-full ring ring-slate-700 ring-offset-base-100 ring-offset-2"
-							src={user?.photoURL}
-							title={user?.displayName}
-							alt=""
+							src={user.photoURL ? user.photoURL : "loading"}
+							title={user.displayName}
+							alt="loading"
 						/>
 					</p>
 				) : (
 					<p className="text-lg font-bold flex items-center gap-2">
 						<Link to="/login">Sign In</Link>
-						<FaUserAlt className="" />
 					</p>
 				)}
 			</div>

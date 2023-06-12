@@ -6,7 +6,7 @@ import { FaDollarSign } from "react-icons/fa";
 
 const Classes = () => {
 	const [classes, setClasses] = useState([]);
-	const { loading } = useContext(AuthContext);
+	const { user, loading } = useContext(AuthContext);
 
 	console.log(classes);
 	useEffect(() => {
@@ -16,16 +16,25 @@ const Classes = () => {
 	}, []);
 
 	const handleSelection = (_id) => {
-		Swal.fire({
-			position: "center",
-			icon: "success",
-			title: "Your Class has been Selected!",
-			showConfirmButton: false,
-			timer: 1500,
-		});
+		if (user?.email) {
+			Swal.fire({
+				position: "center",
+				icon: "success",
+				title: "Your Class has been Selected!",
+				showConfirmButton: false,
+				timer: 1500,
+			});
+		} else {
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "You need to login first!",
+			});
+		}
+
 		const selectedClass = classes.find((item) => item._id === _id);
 		console.log(_id);
-		fetch("http://localhost:5000/student", {
+		fetch("http://localhost:5000/class", {
 			method: "POST",
 			headers: {
 				"Content-type": "application/json",
@@ -65,7 +74,7 @@ const Classes = () => {
 										src={item.image}
 										alt="musician"
 									/>
-									<p className="absolute right-5 top-2 flex gap-1 rounded items-center bg-black p-2">
+									<p className="absolute right-5 top-2 flex gap-1 rounded items-center font-semibold bg-black p-2">
 										<FaDollarSign /> {item.price}
 									</p>
 								</figure>

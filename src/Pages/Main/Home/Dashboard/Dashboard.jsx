@@ -7,8 +7,11 @@ const Dashboard = () => {
 
 	const { user, loading } = useContext(AuthContext);
 
+	console.log(selectedClasses);
+
 	useEffect(() => {
-		fetch(`http://localhost:5000/student/${user?.email}`)
+		if (!user?.email) return;
+		fetch(`http://localhost:5000/class/${user?.email}`)
 			.then((res) => res.json())
 			.then((data) => setSelectedClasses(data));
 	}, [user?.email]);
