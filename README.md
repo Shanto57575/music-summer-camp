@@ -17,7 +17,7 @@ MelodicMuse is a MERN stack project focused on creating a music summer camp webs
 
    - Navbar with website logo/name, Home, Instructors, Classes, Dashboard, and user profile picture.
    - Conditional rendering of profile picture or login button based on user authentication status.
-   - Footer with website logo/name, copyright, contact information, and address.
+   - Footer with website logo/name, copyright, contact information
 
 3. Homepage:
 
@@ -28,18 +28,18 @@ MelodicMuse is a MERN stack project focused on creating a music summer camp webs
 
 4. Instructors Page:
 
-   - Display all instructors with their image, name, email, number of classes taken, and name of classes.
+   - Here all instructors is displayed with their image, name, email, number of classes taken, and name of classes.
    - See Classes button to view classes taught by an instructor.
 
 5. Classes Page:
 
-   - Show all approved classes with their image, name, instructor name, available seats, and price.
+   - Here all Music classes is displayed with their image, name, instructor name, available seats, and price.
    - Select Button to book a class (disabled if seats are not available or user is not logged in).
    - Highlighting class card background in red if no seats are available.
 
 6. Student Dashboard:
 
-   - Private dashboard accessible only to students.
+   - This route accessible only to students.
    - My Selected Classes section displaying classes booked by the student.
    - Relevant information, such as class details, delete button, and pay button.
    - Ability to remove selected classes by clicking the delete button.
@@ -47,7 +47,7 @@ MelodicMuse is a MERN stack project focused on creating a music summer camp webs
    - Payment page for finalizing payments and reducing available seats after successful payment.
    - Payment history page sorting payments in descending order.
 
-7. Instructor Dashboard:
+7. Instructor Dashboard:+
 
    - Private dashboard accessible only to instructors.
    - Add a Class page with a form to add classes.
@@ -69,6 +69,6 @@ MelodicMuse is a MERN stack project focused on creating a music summer camp webs
    - Use of React Hook Form for the registration and login pages.
    - Dark/light theme toggle for the entire website
    - Responsive design for the entire website.
-   - Use of Tanstack Query (React Query) in at least two places.
-   - Axios for making API calls in at least two instances.
+   - Use of TanStack Query (React Query)
+   - Axios for making API calls
    - Implementation of JWT token for login and registration systems.
