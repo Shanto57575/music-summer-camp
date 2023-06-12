@@ -10,6 +10,7 @@ const Footer = () => {
 				<span className="ml-5 font-serif font-extrabold text-xs">
 					Summer Camp for Instrumental Adventures
 				</span>
+				<p className="ml-5">All Rights Reserved By © Sh@nto</p>
 			</div>
 			<div className="space-y-2 sm:w-full sm:mx-auto lg:w-80 mx-0">
 				<span className="text-white">Social</span>
