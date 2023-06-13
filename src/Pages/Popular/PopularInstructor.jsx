@@ -14,7 +14,7 @@ const PopularInstructor = () => {
 	console.log(instructors);
 
 	useEffect(() => {
-		fetch("http://localhost:5000/instructor")
+		fetch("https://music-summercamp-server.vercel.app/instructor")
 			.then((res) => res.json())
 			.then((data) => setInstructors(data));
 	}, []);

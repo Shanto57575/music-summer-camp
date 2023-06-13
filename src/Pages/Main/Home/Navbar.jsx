@@ -64,8 +64,8 @@ const Navbar = () => {
 			<li>
 				<label className="swap swap-rotate">
 					<input type="checkbox" onChange={handleToggle} />
-					<FaSun className="swap-on fill-current w-10 h-6"></FaSun>
-					<FaMoon className="swap-off fill-current w-10 h-6" />
+					<FaSun className="swap-on fill-current mt-2"></FaSun>
+					<FaMoon className="swap-off fill-current mt-2" />
 				</label>
 			</li>
 			{user ? (

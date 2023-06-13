@@ -3,7 +3,7 @@ import { Flip, Roll, Rotate, Zoom } from "react-awesome-reveal";
 const Activities = () => {
 	return (
 		<>
-			<h1 className="text-center my-20 text-3xl font-bold text-cyan-700">
+			<h1 className="text-center my-20 text-3xl font-bold text-cyan-500">
 				Musical Medley: Diving into Diverse Music Activities
 			</h1>
 			<Zoom>
@@ -13,7 +13,7 @@ const Activities = () => {
 							<div>
 								<img
 									className="h-auto max-w-full rounded-lg"
-									src="https://media.istockphoto.com/id/1135954788/photo/young-adult-couple-playing-guitar-at-sunset-in-a-tent-on-the-beach.jpg?s=612x612&w=0&k=20&c=_5FHrI_8KmaxLEnTGtI01ifulJBg1MOUyL6uvTMWLbs="
+									src="https://media.istockphoto.com/id/1457636135/photo/young-curly-woman-singing-with-a-guitarist-man-in-the-street.jpg?s=612x612&w=0&k=20&c=r___fHdJ6qRpcQQfx2KJ8k4lF-_7Z6xlgkAhvjvqivo="
 									alt=""
 								/>
 							</div>
@@ -71,7 +71,7 @@ const Activities = () => {
 							<div>
 								<img
 									className="h-auto max-w-full rounded-lg"
-									src="https://media.istockphoto.com/id/1457636135/photo/young-curly-woman-singing-with-a-guitarist-man-in-the-street.jpg?s=612x612&w=0&k=20&c=r___fHdJ6qRpcQQfx2KJ8k4lF-_7Z6xlgkAhvjvqivo="
+									src="https://media.istockphoto.com/id/1135954788/photo/young-adult-couple-playing-guitar-at-sunset-in-a-tent-on-the-beach.jpg?s=612x612&w=0&k=20&c=_5FHrI_8KmaxLEnTGtI01ifulJBg1MOUyL6uvTMWLbs="
 									alt=""
 								/>
 							</div>

@@ -5,17 +5,18 @@ import Swal from "sweetalert2";
 import { FaDollarSign } from "react-icons/fa";
 
 const Classes = () => {
-	const [classes, setClasses] = useState([]);
 	const { user, loading } = useContext(AuthContext);
 
-	console.log(classes);
+	const [classes, setClasses] = useState([]);
+
 	useEffect(() => {
-		fetch("http://localhost:5000/class")
+		fetch("https://music-summercamp-server.vercel.app/class")
 			.then((res) => res.json())
 			.then((data) => setClasses(data));
 	}, []);
 
 	const handleSelection = (_id) => {
+		// setBtn(true);
 		if (user?.email) {
 			Swal.fire({
 				position: "center",
@@ -30,17 +31,27 @@ const Classes = () => {
 				title: "Oops...",
 				text: "You need to login first!",
 			});
+			return;
 		}
 
 		const selectedClass = classes.find((item) => item._id === _id);
+		console.log(selectedClass);
+
+		const requestData = {
+			email: user?.email,
+			...selectedClass,
+		};
+
 		console.log(_id);
-		fetch("http://localhost:5000/class", {
+		fetch("https://music-summercamp-server.vercel.app/select", {
 			method: "POST",
 			headers: {
-				"Content-type": "application/json",
+				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(selectedClass),
-		});
+			body: JSON.stringify(requestData),
+		})
+			.then((res) => res.json())
+			.then((data) => console.log(data));
 	};
 
 	if (loading) {
