@@ -16,6 +16,7 @@ const Classes = () => {
 	}, []);
 
 	const handleSelection = (_id) => {
+		console.log(_id);
 		if (user?.email) {
 			Swal.fire({
 				position: "center",

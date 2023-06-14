@@ -7,7 +7,7 @@ const Dashboard = () => {
 	const { user, loading } = useContext(AuthContext);
 	const [selectedClasses, setSelectedClasses] = useState([]);
 
-	const url = `https://music-summercamp-server.vercel.app/class?email=${user?.email}`;
+	const url = `https://music-summercamp-server.vercel.app/select/${user?.email}`;
 
 	useEffect(() => {
 		if (!user?.email) return;
@@ -16,8 +16,8 @@ const Dashboard = () => {
 			.then((data) => setSelectedClasses(data));
 	}, [user?.email, url]);
 
-	const handleDelete = (_id) => {
-		console.log(_id);
+	const handleDelete = (id) => {
+		console.log(id);
 		Swal.fire({
 			title: "Are you sure?",
 			text: "You won't be able to revert this!!!",
@@ -28,16 +28,16 @@ const Dashboard = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`https://music-summercamp-server.vercel.app/select/${_id}`, {
+				fetch(`https://music-summercamp-server.vercel.app/select/${id}`, {
 					method: "DELETE",
 				})
 					.then((res) => res.json())
 					.then((data) => {
 						console.log(data);
 						if (data.deletedCount > 0) {
-							Swal.fire("Deleted!", "Your Coffee has been deleted.", "success");
+							Swal.fire("Deleted!", "Class Deleted.", "success");
 							const remaining = selectedClasses.filter(
-								(selectedClass) => selectedClass._id !== _id
+								(selectedClass) => selectedClass._id !== id
 							);
 							setSelectedClasses(remaining);
 						}
