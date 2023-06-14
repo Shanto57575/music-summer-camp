@@ -16,7 +16,6 @@ const Classes = () => {
 	}, []);
 
 	const handleSelection = (_id) => {
-		// setBtn(true);
 		if (user?.email) {
 			Swal.fire({
 				position: "center",
@@ -46,7 +45,7 @@ const Classes = () => {
 		fetch("https://music-summercamp-server.vercel.app/select", {
 			method: "POST",
 			headers: {
-				"Content-Type": "application/json",
+				"content-type": "application/json",
 			},
 			body: JSON.stringify(requestData),
 		})

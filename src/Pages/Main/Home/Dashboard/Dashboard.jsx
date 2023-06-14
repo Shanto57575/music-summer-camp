@@ -7,18 +7,20 @@ const Dashboard = () => {
 	const { user, loading } = useContext(AuthContext);
 	const [selectedClasses, setSelectedClasses] = useState([]);
 
+	const url = `https://music-summercamp-server.vercel.app/class?email=${user?.email}`;
+
 	useEffect(() => {
 		if (!user?.email) return;
-		fetch("https://music-summercamp-server.vercel.app/select")
+		fetch(url)
 			.then((res) => res.json())
 			.then((data) => setSelectedClasses(data));
-	}, [user?.email]);
+	}, [user?.email, url]);
 
 	const handleDelete = (_id) => {
 		console.log(_id);
 		Swal.fire({
 			title: "Are you sure?",
-			text: "You won't be able to revert this!",
+			text: "You won't be able to revert this!!!",
 			icon: "warning",
 			showCancelButton: true,
 			confirmButtonColor: "#3085d6",

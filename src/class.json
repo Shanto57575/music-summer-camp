@@ -1,0 +1,162 @@
+[
+    {
+    "_id": "64835ae0fbfc94d1d6c3a399",
+    "name": "John Smith",
+    "musicClasses": "Piano",
+    "image": "https://i.postimg.cc/tCw6tBWm/majestic-grand-piano-with-red-lights-generative-ai-188544-7789.jpg",
+    "availableSeats": 20,
+    "price": 75.99
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a39a",
+    "name": "Jane Doe",
+    "musicClasses": "Guitar",
+    "image": "https://i.postimg.cc/wTmMHgR0/grunge-classical-wall-sound-space-1172-435.jpg",
+    "availableSeats": 8,
+    "price": 60.5
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a39b",
+    "name": "Michael Johnson",
+    "musicClasses": "Violin",
+    "image": "https://i.postimg.cc/1XxtVjLp/violin-bow-white-background-1150-8456.jpg",
+    "availableSeats": 6,
+    "price": 90
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a39c",
+    "name": "Christopher Davis",
+    "musicClasses": "Drums",
+    "image": "https://i.postimg.cc/gj4Cbwqn/drums-cymbals-hi-hat-beautiful-recording-studio-169016-3801.jpg",
+    "availableSeats": 7,
+    "price": 80.25
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a39d",
+    "name": "David Lee",
+    "musicClasses": "Saxophone",
+    "image": "https://i.postimg.cc/Vk9jfj0G/saxophone-golden-alto-saxophone-classical-instrument-155003-8133.jpg",
+    "availableSeats": 5,
+    "price": 55.99
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a39e",
+    "name": "Sarah Wilson",
+    "musicClasses": "Trumpet",
+    "image": "https://i.postimg.cc/k5BKxLhZ/detail-trumpet-wind-instrument-metal-150588-9.jpg",
+    "availableSeats": 9,
+    "price": 70
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a39f",
+    "name": "Emily Brown",
+    "musicClasses": "Cello",
+    "image": "https://i.postimg.cc/4ytrnLgH/3d-model-guitar-with-floral-design-1340-28998.jpg",
+    "availableSeats": 4,
+    "price": 95.5
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3a0",
+    "name": "Daniel Anderson",
+    "musicClasses": "Flute",
+    "image": "https://i.postimg.cc/vTB4snFK/top-view-metal-flute-23-2148201692.jpg",
+    "availableSeats": 8,
+    "price": 70.99
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3a1",
+    "name": "Olivia Taylor",
+    "musicClasses": "Clarinet",
+    "image": "https://i.postimg.cc/Wzh1KP0L/saxophone-cup-coffee-are-table-1340-33517.jpg",
+    "availableSeats": 6,
+    "price": 75.5
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3a2",
+    "name": "Amanda Miller",
+    "musicClasses": "Bass guitar",
+    "image": "https://i.postimg.cc/WzFs8wPs/electric-guitar-gray-155003-455.jpg",
+    "availableSeats": 5,
+    "price": 80
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3a3",
+    "name": "Ryan Thompson",
+    "musicClasses": "Harp",
+    "image": "https://i.postimg.cc/bY9XX534/500-F-166003057-Esx-Yh-LZ2-Ev-Pl-GAPa-Iz-Wg-Vru-Yt2-WYLEMP.jpg",
+    "availableSeats": 4,
+    "price": 85.25
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3a4",
+    "name": "Joseph White",
+    "musicClasses": "Trombone",
+    "image": "https://i.postimg.cc/sDb4Tj5z/IMG020-GLC-229-600x600.jpg",
+    "availableSeats": 7,
+    "price": 75.99
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3a5",
+    "name": "Sophia Martinez",
+    "musicClasses": "Ukulele",
+    "image": "https://i.postimg.cc/9fL4Nbs9/5321187.jpg",
+    "availableSeats": 3,
+    "price": 60
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3a6",
+    "name": "Lauren Clark",
+    "musicClasses": "Accordion",
+    "image": "https://i.postimg.cc/50w0LM8f/accordion-5188186-1280.png",
+    "availableSeats": 2,
+    "price": 95.5
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3a7",
+    "name": "Jonathan Walker",
+    "musicClasses": "French horn",
+    "image": "https://i.postimg.cc/jdDpF4k7/lossy-page1-1200px-Yamaha-Horn-YHR-667-V-tif.jpg",
+    "availableSeats": 5,
+    "price": 85.99
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3a8",
+    "name": "Mia Garcia",
+    "musicClasses": "Electric guitar",
+    "image": "https://i.postimg.cc/RVJYRVN1/p-region-RG8527-BRE-00-06.png",
+    "availableSeats": 9,
+    "price": 65
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3a9",
+    "name": "Ethan Lewis",
+    "musicClasses": "Banjo",
+    "image": "https://i.postimg.cc/YC5LWRTf/61zw-GNbd-OL-SL1200-1024x1024.jpg",
+    "availableSeats": 8,
+    "price": 70.99
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3aa",
+    "name": "Isabella Hall",
+    "musicClasses": "Oboe",
+    "image": "https://i.postimg.cc/rwXqGHFm/difference-between-oboe-and-clarinet.jpg",
+    "availableSeats": 6,
+    "price": 95.5
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3ab",
+    "name": "James Young",
+    "musicClasses": "Viola",
+    "image": "https://i.postimg.cc/05KQpDdV/History-of-the-Viola-e1611321132702.jpg",
+    "availableSeats": 4,
+    "price": 80.25
+    },
+    {
+    "_id": "64835ae0fbfc94d1d6c3a3ac",
+    "name": "Chloe Scott",
+    "musicClasses": "Double Bass",
+    "image": "https://i.postimg.cc/VL43vHrp/parts-of-a-double-bass.jpg",
+    "availableSeats": 7,
+    "price": 90.99
+    }
+    ]

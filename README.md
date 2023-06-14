@@ -72,3 +72,5 @@ MelodicMuse is a MERN stack project focused on creating a music summer camp webs
    - Use of TanStack Query (React Query)
    - Axios for making API calls
    - Implementation of JWT token for login and registration systems.
+
+Live Link : https://melovarse-6ce64.web.app/
