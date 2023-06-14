@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { FaDollarSign } from "react-icons/fa";
 
 const PopularClasses = () => {
-	const { user, loading } = useContext(AuthContext);
+	const { loading } = useContext(AuthContext);
 
 	const [classes, setClasses] = useState([]);
 
 	useEffect(() => {
 		fetch("https://music-summercamp-server.vercel.app/class")
 			.then((res) => res.json())
-			.then((data) => console.log(data));
+			.then((data) => setClasses(data));
 	}, []);
 
 	if (loading) {
@@ -28,7 +29,7 @@ const PopularClasses = () => {
 			<h1 className="text-center text-3xl my-10 text-cyan-500">
 				This is Our Most Enrolled Classes
 			</h1>
-			<div className="grid grid-cols-1 lg:grid-cols-4 lg:gap-5 w-full mx-auto mb-5">
+			<div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-5 w-full mx-auto mb-5">
 				{classes.slice(0, 6).map((item) => (
 					<div key={item._id}>
 						<div className="block rounded-lg bg-white text-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-slate-700">
