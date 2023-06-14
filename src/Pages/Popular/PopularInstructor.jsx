@@ -11,6 +11,7 @@ const PopularInstructor = () => {
 
 	const [instructors, setInstructors] = useState([]);
 	const { loading } = useContext(AuthContext);
+
 	console.log(instructors);
 
 	useEffect(() => {
