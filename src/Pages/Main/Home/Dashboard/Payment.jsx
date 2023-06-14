@@ -2,7 +2,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckOutFrom from "./CheckOutFrom";
 import { Elements } from "@stripe/react-stripe-js";
 
-const stripePromise = loadStripe("");
+const stripePromise = loadStripe();
 
 const Payment = () => {
 	return (
